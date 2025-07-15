@@ -4,7 +4,7 @@ import { FaUpwork } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className=" mb-6 flex flex-col gap-8">
+    <footer className=" my-6 flex flex-col gap-8">
       <section className="bg-primary/60 rounded-2xl py-20 flex flex-col gap-6 items-center">
         <div className="bg-secondary text-black text-xs font-medium rounded-full py-3 px-5 flex items-center gap-2">
           <span className="relative flex h-2 w-2">

@@ -9,7 +9,7 @@ export default function Header() {
       </div>
       <h1 className="max-w-4xl leading-16">
         Aspiring{" "}
-        <b className="font-extrabold text-secondary">software engineer</b> who
+        <b className="font-extrabold text-secondary">Full Stack Engineer</b> who
         loves to solve complex problems and create elegant solutions through
         code
       </h1>

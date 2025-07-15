@@ -45,7 +45,7 @@ export default function Navbar() {
 
     return (
         <nav className="flex items-center justify-between max-w-3xl mx-auto mt-6 py-2 px-3 text-white">
-            <h1 className="logo">MouadMounib</h1>
+            <h1 className="logo">MM.</h1>
             <ul className="flex space-x-4 list-none">
                 <li>
                     <Link 

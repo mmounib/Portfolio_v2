@@ -56,6 +56,7 @@ export default function Footer() {
           </Link>
           <Link
             href={"https://www.upwork.com/freelancers/~01882ef75fd23742cf"}
+            target="_blank"
             className="hover:text-muted"
           >
             <FaUpwork size={25} />

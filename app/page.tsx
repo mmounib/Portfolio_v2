@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 export default function Home() {
   useEffect(() => {
     // Initialize smooth scrolling
-    let smoother = ScrollSmoother.create({
+    const smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
       smooth: 2,

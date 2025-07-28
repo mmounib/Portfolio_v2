@@ -9,6 +9,7 @@ const projects = [
     description: "Create and trade meme coins effortlessly",
     image: "/chargefun.png",
     techStack: ["Next.js", "TailwindCSS", "Shadcn", "Figma", "TypeScript"],
+    link: "https://charge.fun",
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ const projects = [
       "API Integration",
       "TypeScript",
     ],
+    link: "https://mlnetworks.io/",
   },
   {
     id: 3,
@@ -49,15 +51,15 @@ const projects = [
 export default function Projects() {
   return (
     <section className="flex flex-col w-full h-full gap-16" id="projects">
-      <div className="flex items-center justify-center gap-3">
+      <div className="flex items-center justify-center gap-3 max-sm:gap-0">
         <span className="w-[100px] bg-primary h-[1px]"></span>
-        <h3 className="text-accent text-center text-xl font-bold">
+        <h3 className="text-accent text-center text-xl max-sm:text-lg font-bold">
           Selected Projects
         </h3>
         <span className="w-[100px] bg-primary h-[1px]"></span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 group/projects">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 group/projects">
         {projects.map((project) => (
           <div
             key={project.id}
@@ -97,7 +99,7 @@ export default function Projects() {
               )}
             </div>
 
-            <div className="p-6 flex items-end justify-between">
+            <div className="p-6 flex items-end justify-between max-sm:flex-col max-sm:items-start max-sm:gap-6">
               <div className="flex-1">
                 <div className="mb-4">
                   <h4
@@ -146,13 +148,13 @@ export default function Projects() {
                 </div>
               </div>
               {project.underConstruction ? (
-                <div className="font-semibold text-sm bg-yellow-500/10 text-yellow-500/70 border border-yellow-500/20 rounded-full py-2.5 px-4 cursor-not-allowed">
+                <div className="font-semibold text-sm bg-yellow-500/10 text-yellow-500/70 border border-yellow-500/20 rounded-full py-2.5 px-4 cursor-not-allowed max-sm:w-full max-sm:text-center">
                   Coming Soon
                 </div>
               ) : (
                 <Link
-                  href={"#"}
-                  className="font-semibold text-sm bg-white hover:bg-white/90 text-black rounded-full py-2.5 px-4"
+                  href={project.link || "#"}
+                  className="font-semibold text-sm bg-white hover:bg-white/90 text-black rounded-full py-2.5 px-4 max-sm:w-full max-sm:text-center"
                 >
                   Check it out
                 </Link>

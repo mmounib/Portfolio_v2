@@ -23,7 +23,7 @@ export default function About() {
   ];
 
   return (
-    <section className="flex flex-col w-full h-full gap-16" id="about">
+    <section className="flex flex-col w-full h-full gap-16 max-sm:gap-12" id="about">
       <div className="flex items-center justify-center gap-3">
         <span className="w-[100px] bg-primary h-[1px]"></span>
         <h3 className="text-accent text-center  text-xl font-bold">
@@ -32,7 +32,7 @@ export default function About() {
         <span className="w-[100px] bg-primary h-[1px]"></span>
       </div>
       <div className="flex flex-col items-center gap-6">
-        <h1 className="max-w-5xl mx-auto text-center text-3xl font-medium max-sm:text-lg max-sm:max-w-full leading-12">
+        <h1 className="max-w-5xl mx-auto text-center text-3xl font-medium max-sm:text-lg max-sm:max-w-full leading-12 max-sm:leading-9">
           Based in Casablanca, Morocco. I am A dedicated{" "}
           <span>Full Stack developer</span> with a passion for creating
           innovative solutions that can meet the needs of the clients and
@@ -47,7 +47,7 @@ export default function About() {
           </h3>
           <span className="w-[100px] bg-primary h-[1px]"></span>
         </div>
-        <div className="mt-4 flex flex-wrap justify-center gap-3 max-w-3xl">
+        <div className="mt-4 flex flex-wrap justify-center gap-3 max-w-3xl max-sm:max-w-full">
           {skills.map((skill, index) => {
             const IconComponent = skill.icon;
             return (

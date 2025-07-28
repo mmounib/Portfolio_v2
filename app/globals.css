@@ -129,6 +129,6 @@
     @apply bg-primary/30 rounded-full py-3 px-7 border border-muted/15;
   }
   h1 {
-    @apply text-6xl  text-white;
+    @apply text-6xl  text-white max-sm:text-3xl;
   }
 }

@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Raleway, Geist, Geist_Mono, Lobster_Two, Ubuntu } from "next/font/google";
+import {
+  Raleway,
+  Geist,
+  Geist_Mono,
+  Lobster_Two,
+  Ubuntu,
+} from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,12 +50,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${lobsterTwo.variable} ${ubuntu.variable} ${raleway.variable} antialiased bg-black min-h-screen max-w-[75%] mx-auto text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${lobsterTwo.variable} ${ubuntu.variable} ${raleway.variable} antialiased bg-black min-h-screen max-w-[75%] mx-auto text-white max-sm:max-w-screen max-sm:mx-4`}
       >
-        <Navbar />
+        <div className="relative z-50 pointer-events-auto">
+          <Navbar />
+        </div>
         {children}
       </body>
-      <Footer />
     </html>
   );
 }

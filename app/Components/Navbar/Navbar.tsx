@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { MdOutlineHome, MdOutlineEmail } from "react-icons/md";
+import { MdOutlineHome, MdOutlineEmail, MdMenu, MdClose } from "react-icons/md";
 import { FaRegUser, FaRegFolderOpen } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState("home");
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -41,12 +42,19 @@ export default function Navbar() {
 
     const handleNavClick = (section: string) => {
         setActiveSection(section);
+        setIsMobileMenuOpen(false); // Close mobile menu on navigation
+    };
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
     return (
-        <nav className="flex items-center justify-between max-w-3xl mx-auto mt-6 py-2 px-3 text-white">
+        <nav className="flex items-center justify-between mx-auto mt-6 py-1 px-3 text-white relative max-w-3xl md:max-w-3xl z-50 pointer-events-auto">
             <h1 className="logo">MM.</h1>
-            <ul className="flex space-x-4 list-none">
+            
+            {/* Desktop Navigation */}
+            <ul className="hidden md:flex space-x-4 list-none">
                 <li>
                     <Link 
                         href="#home" 
@@ -77,10 +85,80 @@ export default function Navbar() {
                     </Link>
                 </li>
             </ul>
-            <Link href="/contact" className=" flex items-center gap-1 px-4 py-2 bg-primary rounded-full text-sm hover:bg-accent">
+
+            {/* Desktop Contact Button */}
+            <Link href="/contact" className="hidden md:flex items-center gap-1 px-4 py-2 bg-primary rounded-full text-sm hover:bg-accent">
                 <MdOutlineEmail size={17} />
                 Contact Me
             </Link>
+
+            {/* Mobile Hamburger Menu */}
+            <button 
+                className="md:hidden p-2 text-white hover:text-accent transition-colors"
+                onClick={toggleMobileMenu}
+                aria-label="Toggle menu"
+            >
+                {isMobileMenuOpen ? <MdClose size={30} /> : <MdMenu size={30} />}
+            </button>
+
+            {/* Mobile Menu Overlay */}
+            {isMobileMenuOpen && (
+                <>
+                    <div 
+                        className="fixed inset-0 w-full z-40 md:hidden"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    />
+                    <div className="fixed top-0 right-0 h-full w-96 bg-black border-l border-muted/20 z-50 md:hidden">
+                        <div className="flex flex-col p-6 space-y-6">
+                            <div className="flex items-center justify-between mb-6">
+                                <button 
+                                    onClick={toggleMobileMenu}
+                                    className="p-1 text-white hover:text-accent"
+                                >
+                                    <MdClose size={20} />
+                                </button>
+                            </div>
+                            
+                            <Link 
+                                href="#home" 
+                                className={`${getNavItemClasses("home")} w-full justify-start`}
+                                onClick={() => handleNavClick("home")}
+                            >
+                                <MdOutlineHome size={20}/> Home
+                            </Link>
+                            
+                            <Link 
+                                href="#about" 
+                                className={`${getNavItemClasses("about")} w-full justify-start`}
+                                onClick={() => handleNavClick("about")}
+                            >
+                                <FaRegUser size={13}/>
+                                About
+                            </Link>
+                            
+                            <Link 
+                                href="#projects" 
+                                className={`${getNavItemClasses("projects")} w-full justify-start`}
+                                onClick={() => handleNavClick("projects")}
+                            >
+                                <FaRegFolderOpen size={20}/>
+                                Projects
+                            </Link>
+
+                            <div className="pt-4 border-t border-muted/20">
+                                <Link 
+                                    href="/contact" 
+                                    className="flex items-center gap-2 px-4 py-3 bg-primary rounded-full text-sm hover:bg-accent w-full justify-center"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    <MdOutlineEmail size={17} />
+                                    Contact Me
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )}
         </nav>
     )
 }

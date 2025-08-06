@@ -1,20 +1,20 @@
 export default function Experience() {
   const experiences = [
     {
-      period: "May 2025 - Present",
-      location: "Casablanca, Morocco - Full Time",
-      position: "Full Stack Engineer",
-      company: "Ecodexia",
-      description:
-        "- Providing API documentation and UI solutions using no-code / low-code features on Bitrix24 Platform.\n- Integrating backend solutions using Express.js and REST APIs.",
-    },
-    {
       period: "Sep 2024 - Present",
       location: "Remote - Freelance",
       position: "Full Stack Developer",
       company: "Upwork",
       description:
-        "- Delivering high-quality projects using React.js, Next.js, React Native and TailwindCSS",
+      "- Delivering high-quality projects using React.js, Next.js, React Native and TailwindCSS",
+    },
+    {
+      period: "May 2025 - August 2025",
+      location: "Casablanca, Morocco - Full Time",
+      position: "Full Stack Engineer",
+      company: "Cora Tech",
+      description:
+        "- Providing API documentation and UI solutions using no-code / low-code features on Bitrix24 Platform.\n- Integrating backend solutions using Express.js and REST APIs.",
     },
     {
       period: "Feb 2025 - May 2025",

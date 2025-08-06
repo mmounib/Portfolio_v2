@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { MdOutlineHome, MdOutlineEmail, MdMenu, MdClose } from "react-icons/md";
 import { FaRegUser, FaRegFolderOpen } from "react-icons/fa";
 import { useState, useEffect } from "react";
@@ -51,7 +52,14 @@ export default function Navbar() {
 
     return (
         <nav className="flex items-center justify-between mx-auto mt-6 py-1 px-3 text-white relative max-w-3xl md:max-w-3xl z-50 pointer-events-auto">
-            <h1 className="logo">MM.</h1>
+            <Image
+                src="/logo-1.jpg"
+                alt="Logo"
+                width={45}
+                height={45}
+                className="cursor-pointer rounded-[999px]"
+                onClick={() => handleNavClick("home")}
+            />
             
             {/* Desktop Navigation */}
             <ul className="hidden md:flex space-x-4 list-none">
